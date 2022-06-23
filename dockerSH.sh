@@ -20,13 +20,19 @@ while true; do
 		ps)
 			sudo docker ps
 		;;
+		stop)
+			sudo docker ps
+			echo "coloque el nombre del contenedor que desea detener"
+			read stop_ct
+			sudo docker stop $stop_ct
+		;;
 		deploy)
 			echo "indique el nombre que desee colocar a su contenedor"
 			read container
 			echo "indique el nombre de la imagen que desea ejecutar"
 			read image
 			if [ -n $container ]; then
-				sudo docker run --rm -d -p 8000:80 --name $container $image
+				sudo docker run --rm -d -p 80:80 --name $container $image
 				let contenedor=0
 			fi
 		;;
@@ -41,7 +47,7 @@ while true; do
 			echo "coloque el nombre y el tag de su imagen local (hola:1.0.0)"
 			read image_local
 
-			echo "coloque el nombre que desea colocarle a su nueva imagen y su nueva tag (hola:1.0.1)"
+			echo "coloque el nombre y tag que desea colocarle al tag y tu usuario  (user/hola:1.0.1)"
 			read image_vr
 			sudo docker tag $image_local $image_vr
 			echo $image_vr
@@ -63,7 +69,7 @@ while true; do
 			echo "coloque el tag en el que desea volver"
 			read tag_roll
 			if [ -n $container_roll ]; then
-				sudo docker run --rm -d -p 8000:80 --name $container_roll $image_roll:$tag_roll
+				sudo docker run --rm -d -p 80:80 --name $container_roll $image_roll:$tag_roll
 				let contenedor=0
 				echo $contenedor
 			fi
