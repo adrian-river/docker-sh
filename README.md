@@ -1,5 +1,9 @@
 # docker-sh
 
+## notas:
+<p>- no es necesario pasarle al archivo un parametro se colocan despues de colocar <code>./dockerSH.sh</code></p>
+<p>- tener habilitado o desocupado el puerto 80:80</p>
+
 ## instrucciones:
 
 <ol>
@@ -8,9 +12,6 @@
   <li>crear un archivo Dockerfile en cualquier directorio y ejecutar <code>sudo docker build -t "image-name" .</code> </li>
   <li>ejecutar el comando <code>./dockerSH.sh</code></li>
 </ol>
-
-nota: no es necesario pasarle al archivo un parametro se colocan despues de colocar <code>./dockerSH.sh</code>
-
 
 ## Parametros:
 
@@ -34,3 +35,4 @@ nota: no es necesario pasarle al archivo un parametro se colocan despues de colo
   <li>rollback === <strong>se ejecuta un run con una version especifica</strong></li>
    === <strong>se ejecuta un <code>docker run</code> con una version especifica y se puede volver a colocar y eliminara el anterior contenedor con el mismo nombre</strong>
 </ul>
+
